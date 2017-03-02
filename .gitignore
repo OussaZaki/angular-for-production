@@ -2,8 +2,6 @@ node_modules
 npm-debug.log
 
 # Ignores compiled TypeScript files
-src/app/**/*.map
-src/app/**/*.js
-src/main.js
-src/main.js.map
+src/**/*.map
+src/**/*.js
 dist
