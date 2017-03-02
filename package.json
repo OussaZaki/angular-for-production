@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Simple angular hello world app to demonstrate some production good practices",
   "scripts": {
-    "build": "tsc -p src/",
-    "build:watch": "tsc -p src/ -w",
+    "build": "tsc",
+    "build:watch": "tsc -w",
     "serve": "lite-server -c=bs-config.json",
     "start": "concurrently \"npm run build\" \"npm run serve\"",
     "start:watch": "concurrently \"npm run build:watch\" \"npm run serve\"",
