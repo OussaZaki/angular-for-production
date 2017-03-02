@@ -4,14 +4,15 @@
   "description": "Simple angular hello world app to demonstrate some production good practices",
   "scripts": {
     "build": "tsc",
-    "build:prod": "concurrently \"npm run build\" \"browserify -s main dist/main.js > dist/bundle.js\"",
+    "build:prod": "npm run build && browserify -s main dist/main.js > dist/bundle.js && npm run minify",
     "build:watch": "tsc -w",
     "serve": "http-server . -p 8000",
     "start": "concurrently \"npm run build\" \"npm run serve\"",
-    "start:prod": "npm run build:prod && npm run serve",
+    "start:prod": "npm run clean && npm run build:prod && npm run serve",
     "start:watch": "concurrently \"npm run build:watch\" \"npm run serve\"",
     "lint": "tslint ./src/**/*.ts -t verbose",
-    "clean": "rimraf ./src/**/*.js ./src/**/*.js.map"
+    "clean": "rimraf ./dist",
+    "minify": "uglifyjs dist/bundle.js --screw-ie8 --compress --mangle --output dist/bundle.min.js"
   },
   "keywords": [
     "Angular",
@@ -39,7 +40,8 @@
     "reflect-metadata": "^0.1.10",
     "rimraf": "^2.5.4",
     "tslint": "^3.15.1",
-    "typescript": "~2.0.10"
+    "typescript": "~2.0.10",
+    "uglifyjs": "^2.4.10"
   },
   "repository": {}
 }
