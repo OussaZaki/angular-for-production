@@ -12,7 +12,8 @@
     ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "rootDir": "./app"
+    "rootDir": "src",
+    "outDir": "./dist"
   },
   "files": [
       "src/main.ts"
